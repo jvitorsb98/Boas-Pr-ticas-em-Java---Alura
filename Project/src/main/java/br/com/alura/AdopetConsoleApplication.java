@@ -1,5 +1,6 @@
 package br.com.alura;
 
+import br.com.alura.config.client.ClientHttpConfiguration;
 import br.com.alura.services.PetService;
 import br.com.alura.services.ShelterService;
 import com.google.gson.JsonArray;
@@ -20,9 +21,11 @@ public class AdopetConsoleApplication {
 
     public static void main(String[] args) {
 
-        ShelterService shelterService = new ShelterService();
+        ClientHttpConfiguration clientHttpConfiguration = new ClientHttpConfiguration();
 
-        PetService petService = new PetService();
+        ShelterService shelterService = new ShelterService(clientHttpConfiguration);
+
+        PetService petService = new PetService(clientHttpConfiguration);
 
         System.out.println("##### BOAS VINDAS AO SISTEMA ADOPET CONSOLE #####");
         try {
